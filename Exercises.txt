@@ -1,0 +1,83 @@
+﻿1. Write a function that converts a hexadecimal color, for example blue(#000FF), into its RGB representation rgb(0,0,255). Name your function getRGB() and test it with the following code.
+
+function getRGB(hexColor) 
+{
+
+var res = "rgb(";
+
+res += parseInt("0x"+hexColor[1]+hexColor[2]) + ", ";
+
+res += parseInt("0x"+hexColor[3]+hexColor[4]) + ", ";
+
+res += parseInt("0x"+hexColor[5]+hexColor[6]) + ")";
+
+return res;
+}
+undefined
+>>getRGB("#0000FF");
+"rgb(0, 0, 255)"
+
+ >>getRGB("#00FF00");
+"rgb(0, 255, 0)"
+
+
+
+2. What do each of these lines print in the console.
+
+  >> parseInt(1e1)
+    10    //1e1 is evaluated first
+
+    >> parseInt('1e1')
+    1  
+
+    >> parseFloat('1e1')
+    10    //parseFloat evaluates exponential in string
+  
+    >> isFinitie(0/10)
+    true
+
+    >> isFinite(20/0)
+    false
+
+    >> isNaN(parseInt(NaN));
+    true
+
+
+
+3. What does this following code alert?
+
+>> var a = 1;
+  function f() {
+    var a = 2;
+    function n() {
+      alert(a);
+    }
+    n();
+  }
+  f();
+
+   ANS: It alerts 2. alert(a) has first access to the local variable a in f() which is defined as 2.
+
+4. All these examples alert "Boo!". Can you explain why?
+
+1  var f = alert; 
+     eval('f("Boo!")');
+
+f is assigned the function alert and eval executes the script in string by passing 'Boo!' as parameter.
+
+2  var e;
+     var f = alert;
+     eval('e=f')('Boo!");
+f is assigned the function alert and eval further assigns alert to e and executes the script in string by passing 'Boo!' as parameter.
+
+3  (
+       function() {
+         return alert;
+       }
+     )() ('Boo!');
+
+function() is a self invoking anonymous function that returns the method alert which is executed immediately by passing 'Boo!' as parameter.
+
+
+
+

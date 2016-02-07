@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+<script>
+
+function ArrayList(arr){
+	this.arr = arr;
+}
+
+ArrayList.prototype = {
+	addItem : function(itemName){
+		this.arr.push(itemName); return this.arr;
+	},
+	deleteItem : function(itemName){
+		this.index = this.arr.indexOf(itemName);
+		this.arr.splice(this.index,1);
+		return this.arr;
+	},
+	getItem : function(itemName){
+		this.index = this.arr.indexOf(itemName);
+		return this.index === -1 ? "Value not found" : this.arr[this.index];
+	},
+	sortItems : function(){
+		this.arr.sort();
+		return this.arr;
+	},
+	updateItem : function(index, newItemName){
+		this.arr[index] = newItemName;
+		return this.arr;
+	},
+	reverseItems : function(){
+       this.arr.reverse();
+       return this.arr;
+	}
+}
+var listOfname = ['Anitha','anu','vikas','jyothi','priya'];
+var nameList = new ArrayList(listOfname);
+console.log(nameList.addItem('mega'));
+console.log(nameList.deleteItem('anu'));
+console.log(nameList.getItem('vikas'));
+console.log(nameList.sortItems());
+console.log(nameList.updateItem(1,'kruthika'));
+console.log(nameList.reverseItems());
+</script>
+</body>
+</html>
